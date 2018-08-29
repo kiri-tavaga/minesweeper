@@ -79,5 +79,12 @@ function countSurroundingMines (cell){
   return count;
 } 
 // Function to reset the game
+function resetGame() {
+  document.getElementsByClassName("board")[0].innerHTML="";
+  board = {cells:[]};
+  mineArray = [];
+  cellNumber = 0;
+  startGame();
+}
 
   //var cellNumber = 0;
