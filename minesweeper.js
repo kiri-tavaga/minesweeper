@@ -6,6 +6,22 @@ var cellNumber = 0;
 var board = {cells: []}
 var mineArray = [];
 
+// Random mines
+function randommiseMines () {
+  let mineCount = 0;
+  for (let i = 0; i < (gridSize*gridSize); i++){
+    if (mineCount < ((gridSize*gridSize)/4)){
+      if ((Math.floor(Math.random()*10))>3){
+        mineArray.push(0);
+      } else {
+        mineArray.push(1);
+        mineCount++;
+      }
+    } else {
+      mineArray.push(0);
+    }
+  }
+}
 // Build the game board
 function buildBoard(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -17,6 +33,7 @@ function buildBoard(gridSize) {
 }
 
 function startGame () {
+  randommiseMines();
   buildBoard(gridSize);
   document.addEventListener('click', checkForWin)
   document.addEventListener('dblclick', checkForWin)
